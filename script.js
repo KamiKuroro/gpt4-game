@@ -8,6 +8,12 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+document.addEventListener('touchstart', (event) => {
+    if (!isJumping) {
+        jump();
+    }
+});
+
 function jump() {
     isJumping = true;
     let position = 0;
