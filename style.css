@@ -46,6 +46,15 @@ body {
     color: #000;
 }
 
+.high-score {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #000;
+}
+
 @keyframes moveObstacle {
     0% {
         right: -20px;

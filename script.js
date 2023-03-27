@@ -1,8 +1,10 @@
 const dino = document.querySelector('.dino');
 const obstacle = document.querySelector('.obstacle');
 const scoreElement = document.getElementById('scoreValue');
+const highScoreElement = document.getElementById('highScoreValue');
 let isJumping = false;
 let score = 0;
+let highScore = 0;
 
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Space' && !isJumping) {
@@ -41,8 +43,11 @@ function jump() {
 function gameOver() {
     alert('Game Over! Reload the page to play again.');
     obstacle.style.animation = 'none';
+    if (score > highScore) {
+        highScore = score;
+        highScoreElement.textContent = highScore;
+    }
     score = 0;
-    scoreElement.textContent = score;
     setTimeout(() => {
         startObstacle();
     }, 1000);
@@ -64,7 +69,7 @@ setInterval(() => {
     const dinoLeft = parseInt(window.getComputedStyle(dino).getPropertyValue('left'));
     const dinoRight =parseInt(window.getComputedStyle(dino).getPropertyValue('right'));
 
-    if (obstacleRight + obstacle.clientWidth >= dinoRight && dinoTop <= 40) {
+    if (obstacleRight + obstacle.clientWidth >= dinoRight && dinoTop <= 40 && obstacleRight - (dino.clientWidth + dinoRight) < 0) {
         gameOver();
     } else {
         updateScore();
