@@ -1,30 +1,36 @@
-body, html {
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
     margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0e68c;
+    overflow: hidden;
 }
 
 .game-container {
     position: relative;
-    width: 100vw;
-    height: 200px;
+    width: 600px;
+    height: 150px;
+    border: 1px solid #000;
+    background-image: linear-gradient(#f7f7f7, #bbb);
     overflow: hidden;
 }
 
 .dino {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background-color: #4b0082;
+    width: 24px;
+    height: 24px;
     bottom: 0;
+    left: 20px;
+    background-color: #333;
 }
 
 .obstacle {
     position: absolute;
     width: 20px;
     height: 40px;
-    background-color: #dc143c;
+    background-color: #333;
     right: -20px;
     bottom: 0;
     animation: moveObstacle 2s infinite linear;
@@ -35,17 +41,16 @@ body, html {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
     color: #000;
 }
 
 @keyframes moveObstacle {
-    from {
+    0% {
         right: -20px;
     }
-    to {
+    100% {
         right: 100%;
     }
 }
-

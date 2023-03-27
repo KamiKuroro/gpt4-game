@@ -39,6 +39,7 @@ function jump() {
 }
 
 function gameOver() {
+    alert('Game Over! Reload the page to play again.');
     obstacle.style.animation = 'none';
     score = 0;
     scoreElement.textContent = score;
@@ -60,11 +61,13 @@ setInterval(() => {
     const dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue('bottom'));
     const obstacleRight = parseInt(window.getComputedStyle(obstacle).getPropertyValue('right'));
     const obstacleLeft = window.innerWidth - obstacleRight - obstacle.clientWidth;
+    const dinoLeft = parseInt(window.getComputedStyle(dino).getPropertyValue('left'));
+    const dinoRight =parseInt(window.getComputedStyle(dino).getPropertyValue('right'));
 
-    if (obstacleLeft >= 0 && obstacleLeft < 40 && dinoTop <= 40) {
-        alert('Game Over! Reload the page to play again.');
-        gameOver()
+    if (obstacleRight + obstacle.clientWidth >= dinoRight && dinoTop <= 40) {
+        gameOver();
     } else {
         updateScore();
     }
-}, 50);
+}, 80);
+
