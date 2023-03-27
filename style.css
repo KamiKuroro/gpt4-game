@@ -1,0 +1,42 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0e68c;
+}
+
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 200px;
+    overflow: hidden;
+}
+
+.dino {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #4b0082;
+    bottom: 0;
+}
+
+.obstacle {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background-color: #dc143c;
+    right: -20px;
+    bottom: 0;
+    animation: moveObstacle 2s infinite linear;
+    animation-delay: 2s;
+}
+
+@keyframes moveObstacle {
+    from {
+        right: -20px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
