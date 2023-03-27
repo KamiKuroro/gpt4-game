@@ -31,6 +31,15 @@ body, html {
     animation-delay: 2s;
 }
 
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: #000;
+}
+
 @keyframes moveObstacle {
     from {
         right: -20px;
